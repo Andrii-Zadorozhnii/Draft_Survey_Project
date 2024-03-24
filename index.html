@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Draft Survey</title>
+</head>
+
+<body>
+    <button type="button" class="input box100" onclick="printPage()">Print</button>
+    <header>
+        <h1>REPORT OF WEIGHT - DRAFT SURVEY</h1>
+        <div class="container-flex wrap center2">
+            <div class="container-flex">
+                <p class="size100300">Vessel Name:</p>
+                <input class="vessel-name__input input size220400"></input>
+            </div>
+            <div class="container-flex">
+                <p class="size100300">Port Name:</p>
+                <input class="port-name__input input size220400"></input>
+            </div>
+            <div class="container-flex">
+                <p class="size100300">Cargo Name:</p>
+                <input class="cargo-name__input input size220400"></input>
+            </div>
+        </div>
+    </header>
+    <!-- <style type="text/css"></styl> -->
+    <main class="container-flex wrap"> 
+        <div class="initial-data">
+            <h2>Initial Calculation</h2>
+            <div class="initial-data__date container-flex center2">
+                <p class="size200">Date:</p>
+                <input type="date" class="initial-data__date-input input"></input>
+                <!-- <input type="time" class="initial-data__date-input input" > -->
+            </div>
+            <div class="initial-data__drafts margin-bottom-30">
+                <div class="container-flex drafts-name">
+                    <p class="size200">Df</p>
+                    <p class="size200">Dm</p>
+                    <p class="size200">Da</p>
+                </div>
+                <div class="initial-data__drafts container-flex center">
+                    <p class="size200 center">Port</p>
+                    <input type="number" step="0.01" class="initial-data__drafts-Port-Df-input size200 input"></input>
+                    <input type="number" step="0.01" class="initial-data__drafts-Port-Dm-input size200 input"></input>
+                    <input type="number" step="0.01" class="initial-data__drafts-Port-Da-input size200 input"></input>
+                </div>
+                <div class="initial-data__drafts container-flex center">
+                    <p class="size200 center">Stbd</p>
+                    <input type="number" step="0.01" class="initial-data__drafts-Stbd-Df-input size200 input"></input>
+                    <input type="number" step="0.01" class="initial-data__drafts-Stbd-Dm-input size200 input"></input>
+                    <input type="number" step="0.01" class="initial-data__drafts-Stbd-Da-input size200 input"></input>
+                </div>
+                <div class="container-flex center margin-bottom-5">
+                    <p class="size200 center">Mean</p>
+                    <p class="initial-data__drafts-Mean-Df size200 input"></p>
+                    <p class="initial-data__drafts-Mean-Dm size200 input"></p>
+                    <p class="initial-data__drafts-Mean-Da size200 input"></p>
+                </div>
+                <div class="initial-data__distance-from-perpendicular container-flex center margin-bottom-5">
+                    <p class="size200 center">Dist FP</p>
+                    <input step="0.001" class="initial-data__distance-from-perpendicular-fwd-input size200 input"></input>
+                    <input step="0.001" class="initial-data__distance-from-perpendicular-mid-input size200 input"></input>
+                    <input step="0.001" class="initial-data__distance-from-perpendicular-aft-input size200 input"></input>
+                </div>
+                <div class="container-flex center margin-bottom-5">
+                    <p class="size200 center">Correction</p>
+                    <p class="initial-data__correction-draft-Fwd size200 input"></p>
+                    <p class="initial-data__correction-draft-Mid size200 input"></p>
+                    <p class="initial-data__correction-draft-Aft size200 input"></p>
+                </div>
+                <div class="container-flex center margin-bottom-5">
+                    <p class="size200 center">Corr Draft</p>
+                    <p class="initial-data__corrected-draft-Fwd size200 input yellow"></p>
+                    <p class="initial-data__corrected-draft-Mid size200 input yellow"></p>
+                    <p class="initial-data__corrected-draft-Aft size200 input yellow"></p>
+                </div>
+            </div>
+            <div class="container-flex">
+            <div class="left">
+                <div class="initial-data__trim_BTM container-flex center margin-bottom-5">
+                    <p class="size200">TBM (≡):</p>
+                    <p class="initial-data__trim-BTM size100 input"></p>
+                </div>
+                <div class="initial-data__trim_BTP container-flex center margin-bottom-5">
+                    <p class="size200">TBP (⊥):</p>
+                    <p class="initial-data__trim-TBP size100 input"></p>
+                </div>
+                <div class="initial-data__density container-flex center margin-bottom-5">
+                    <p class="size200">Water Density:</p>
+                    <input type="number"  step="0.0005" class="initial-data__density-input size100 input highlight"></input>
+                </div>
+                <div class="initial-data_LBM container-flex center margin-bottom-5">
+                    <p class="size200">LBM (≡):</p>
+                    <input type="number"  step="0.001" class="initial-data__LBM size100 input"></input>
+                </div>
+                <div class="initial-data_LBP container-flex center margin-bottom-5">
+                    <p class="size200">LBP (⊥):</p>
+                    <input type="number"  step="0.001" class="initial-data__LBP size100 input"></input>
+                </div>
+                <div class="initial-data_MOM container-flex center margin-bottom-5">
+                    <p class="size200">MoM:</p>
+                    <p class="initial-data__MoM size100 input highlight"></p>
+                </div>
+                <div class="initial-data_TableDispl container-flex center margin-bottom-5">
+                    <p class="size200">Table Displ:</p>
+                    <p type="number"  step="0.001" class="initial-data__TableDispl size100 input"></p>
+                </div>
+                <div class="initial-data_TableLCF container-flex center margin-bottom-5">
+                    <p class="size200">Table LCF:</p>
+                    <p type="number"  step="0.001" class="initial-data__TableLCF size100 input"></p>
+                </div>
+                <div class="initial-data_TableTPC container-flex center margin-bottom-5">
+                    <p class="size200">Table TPC:</p>
+                    <p type="number"  step="0.01" class="initial-data__TableTPC size100 input"></p>
+                </div>
+                <div class="initial-data_1stCorr container-flex center margin-bottom-5">
+                    <p class="size200">1st Corr:</p>
+                    <p class="initial-data__1stCorr size100 input highlight"></p>
+                </div>
+                <div class="initial-data_MTC_MOMUp container-flex center margin-bottom-5">
+                    <p class="size200">MTC MoM+0.5:</p>
+                    <p class="initial-data__MTC_MOMUp size100 input "></p>
+                </div>
+                <div class="initial-data_MTC_MOMDown container-flex center margin-bottom-5">
+                    <p class="size200">MTC MoM-0.5:</p>
+                    <p class="initial-data__MTC_MOMDown size100 input"></p>
+                </div>
+                <div class="initial-data_MTC_DiffMTC container-flex center margin-bottom-5">
+                    <p class="size200">DIFF. OF MTC's:</p>
+                    <p class="initial-data__MTC_DiffMTC size100 input"></p>
+                </div>
+                <div class="initial-data_2ndCorr container-flex center margin-bottom-5">
+                    <p class="size200">2nd Corr:</p>
+                    <p class="initial-data__2ndCorr size100 input highlight"></p>
+                </div>
+                <div class="initial-data_Diff_MidDraft container-flex center margin-bottom-5">
+                    <p class="size200">DIFF. OF Dm:</p>
+                    <p class="initial-data__Diff_MidDraft size100 input"></p>
+                </div>
+                <div class="initial-data_Tpc_DmPort container-flex center margin-bottom-5">
+                    <p class="size200">TPC Dm Port:</p>
+                    <p class="initial-data__Tpc_DmPort size100 input"></p>
+                </div>
+                <div class="initial-data_Tpc_DmStbd container-flex center margin-bottom-5">
+                    <p class="size200">TPC Dm Stbd:</p>
+                    <p class="initial-data__Tpc_DmStbd size100 input"></p>
+                </div>
+                <div class="initial-data_Diff_BtwnTpc container-flex center margin-bottom-5">
+                    <p class="size200">Diff of TPC:</p>
+                    <p class="initial-data__Diff_BtwnTpc size100 input"></p>
+                </div>
+                <div class="initial-data_HeelCorrection container-flex center margin-bottom-5">
+                    <p class="size200">Heel Corr.:</p>
+                    <p class="initial-data__HeelCorrection size100 input highlight"></p>
+                </div>
+                <div class="initial-data_DisplCorrected container-flex center margin-bottom-5">
+                    <p class="size200">Displ Corrected:</p>
+                    <p class="initial-data__DisplCorrected size100 input"></p>
+                </div>
+                <div class="initial-data_HydTableDensity container-flex center margin-bottom-5">
+                    <p class="size200">Hyd. Table Density:</p>
+                    <input type="number"  step="0.001" class="initial-data__HydTableDensity size100 input"></input>
+                </div>
+                <div class="initial-data_FinalDisplCorrected container-flex center margin-bottom-5">
+                    <p class="size200">Final Displ:</p>
+                    <p class="initial-data__initialFinalCalcDisplCorrected size100 input"></p>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                <div class="initial-data_Deductables">
+                    <div class="initial-data_HFO container-flex center margin-bottom-5">
+                        <p class="size200">HFO:</p>
+                        <input type="number"  step="0.1" class="initial-data__HFO size100 input"></input>
+                    </div>
+                    <div class="initial-data_LSFO container-flex center margin-bottom-5">
+                        <p class="size200">LSFO:</p>
+                        <input type="number"  step="0.1" class="initial-data__LSFO size100 input"></input>
+                    </div>
+                    <div class="initial-data_MGO container-flex center margin-bottom-5">
+                        <p class="size200">MGO:</p>
+                        <input type="number"  step="0.1" class="initial-data__MGO size100 input"></input>
+                    </div>
+                    <div class="initial-data_LSMGO container-flex center margin-bottom-5">
+                        <p class="size200">LSMGO:</p>
+                        <input type="number"  step="0.1" class="initial-data__LSMGO size100 input"></input>
+                    </div>
+                    <div class="initial-data_LO container-flex center margin-bottom-5">
+                        <p class="size200">LO:</p>
+                        <input type="number"  step="0.1" class="initial-data__LO size100 input"></input>
+                    </div>
+                    <div class="initial-data_FW container-flex center margin-bottom-5">
+                        <p class="size200">FW:</p>
+                        <input type="number"  step="0.1" class="initial-data__FW size100 input"></input>
+                    </div>
+                    <div class="initial-data_Ballast container-flex center margin-bottom-5">
+                        <p class="size200">Ballast:</p>
+                        <input type="number"  step="0.1" class="initial-data__ballast size100 input"></input>
+                    </div>
+                    <div class="initial-data_Constant container-flex center margin-bottom-5">
+                        <p class="size200">Constant:</p>
+                        <input type="number"  step="0.1" class="initial-data__constant size100 input"></input>
+                    </div>
+                    <div class="initial-data_Other container-flex center margin-bottom-5">
+                        <p class="size200">Other:</p>
+                        <input type="number"  step="0.1" class="initial-data__other size100 input"></input>
+                    </div>
+                    <div class="initial-data_totalDecuctables container-flex center margin-bottom-5">
+                        <p class="size200">Total Deductables:</p>
+                        <p class="initial-data__totalDecuctables size100 input"></p>
+                    </div>
+                </div>
+            
+                <div class="initial-data_netDisplacement container-flex center margin-bottom-5">
+                    <p class="size200">Net Displacement:</p>
+                    <p class="initial-data__netDisplacement size100 input"></p>
+                </div>
+                <div class="initial-data_lightship container-flex center margin-bottom-5">
+                    <p class="size200">Lightship:</p>
+                    <input type="number"  step="0.001" class="initial-data__lightship size100 input"></input>
+                </div>
+                <div class="initial-data_cargoOnBoard container-flex center margin-bottom-5">
+                    <p class="size200">Cargo On Board:</p>
+                    <p class="initial-data__cargoOnBoard size100 input highlight"></p>
+                </div>
+            </div>
+            <div class="remarks-box">
+                <p class="size200">Remarks:</p>
+                <input class="initial-remarks input remarks">
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="final-data">
+            <h2>Final Calculation</h2>
+            <div class="initial-data__date container-flex center2">
+                <p class="size200">Date:</p>
+                <input type="date" class="final-data__date-input input"></input>
+            </div>
+            <div class="final-data__drafts margin-bottom-30">
+                <div class="container-flex drafts-name">
+                    <p class="size200">Df</p>
+                    <p class="size200">Dm</p>
+                    <p class="size200">Da</p>
+                </div>
+                <div class="final-data__drafts container-flex center">
+                    <p class="size200 center">Port</p>
+                    <input type="number" step="0.01" class="final-data__drafts-Port-Df-input size200 input"></input>
+                    <input type="number" step="0.01" class="final-data__drafts-Port-Dm-input size200 input"></input>
+                    <input type="number" step="0.01" class="final-data__drafts-Port-Da-input size200 input"></input>
+                </div>
+                <div class="final-data__drafts container-flex center">
+                    <p class="size200 center">Stbd</p>
+                    <input type="number" step="0.01" class="final-data__drafts-Stbd-Df-input size200 input"></input>
+                    <input type="number" step="0.01" class="final-data__drafts-Stbd-Dm-input size200 input"></input>
+                    <input type="number" step="0.01" class="final-data__drafts-Stbd-Da-input size200 input"></input>
+                </div>
+                <div class="container-flex center margin-bottom-5">
+                    <p class="size200 center">Mean</p>
+                    <p class="final-data__drafts-Mean-Df size200 input"></p>
+                    <p class="final-data__drafts-Mean-Dm size200 input"></p>
+                    <p class="final-data__drafts-Mean-Da size200 input"></p>
+                </div>
+                <div class="final-data__distance-from-perpendicular container-flex center margin-bottom-5">
+                    <p class="size200 center">Dist FP</p>
+                    <input step="0.001" class="final-data__distance-from-perpendicular-fwd-input size200 input"></input>
+                    <input step="0.001" class="final-data__distance-from-perpendicular-mid-input size200 input"></input>
+                    <input step="0.001" class="final-data__distance-from-perpendicular-aft-input size200 input"></input>
+                </div>
+                <div class="container-flex center margin-bottom-5">
+                    <p class="size200 center">Correction</p>
+                    <p class="final-data__correction-draft-Fwd size200 input"></p>
+                    <p class="final-data__correction-draft-Mid size200 input"></p>
+                    <p class="final-data__correction-draft-Aft size200 input"></p>
+                </div>
+                <div class="container-flex center margin-bottom-5">
+                    <p class="size200 center">Corr Draft</p>
+                    <p class="final-data__corrected-draft-Fwd size200 input yellow"></p>
+                    <p class="final-data__corrected-draft-Mid size200 input yellow"></p>
+                    <p class="final-data__corrected-draft-Aft size200 input yellow"></p>
+                </div>
+            </div>
+                <div class="container-flex">
+                    <div class="left">
+                <div class="final-data__trim_BTM container-flex margin-bottom-5">
+                    <p class="size200">TBM (≡):</p>
+                    <p class="final-data__trim-BTM size100 input"></p>
+                </div>
+                <div class="final-data__trim_BTP container-flex margin-bottom-5">
+                    <p class="size200">TBP (⊥):</p>
+                    <p class="final-data__trim-TBP size100 input"></p>
+                </div>
+                <div class="final-data__density container-flex margin-bottom-5">
+                    <p class="size200">Water Density:</p>
+                    <input type="number"  step="0.0005" class="final-data__density-input size100 input highlight"></input>
+                </div>
+                
+                <div class="final-data_LBM container-flex margin-bottom-5">
+                    <p class="size200">LBM (≡):</p>
+                    <input type="number"  step="0.001" class="final-data__LBM size100 input"></input>
+                </div>
+                <div class="final-data_LBP container-flex center margin-bottom-5">
+                    <p class="size200">LBP (⊥):</p>
+                    <input type="number"  step="0.001" class="final-data__LBP size100 input"></input>
+                </div>
+                <div class="final-data_MOM container-flex center margin-bottom-5">
+                    <p class="size200">MoM:</p>
+                    <p class="final-data__MoM size100 input highlight"></p>
+                </div>
+                <div class="final-data_TableDispl container-flex center margin-bottom-5">
+                    <p class="size200">Table Displ:</p>
+                    <p type="number"  step="0.001" class="final-data__TableDispl size100 input"></p>
+                </div>
+                <div class="final-data_TableLCF container-flex center margin-bottom-5">
+                    <p class="size200">Table LCF:</p>
+                    <p type="number"  step="0.001" class="final-data__TableLCF size100 input"></p>
+                </div>
+                <div class="final-data_TableTPC container-flex center margin-bottom-5">
+                    <p class="size200">Table TPC:</p>
+                    <p type="number"  step="0.001" class="final-data__TableTPC size100 input"></p>
+                </div>
+                <div class="final-data_1stCorr container-flex center margin-bottom-5">
+                    <p class="size200">1st Corr:</p>
+                    <p class="final-data__1stCorr size100 input highlight"></p>
+                </div>
+                <div class="final-data_MTC_MOMUp container-flex center margin-bottom-5">
+                    <p class="size200">MTC MoM+0.5:</p>
+                    <p class="final-data__MTC_MOMUp size100 input "></p>
+                </div>
+                <div class="final-data_MTC_MOMDown container-flex center margin-bottom-5">
+                    <p class="size200">MTC MoM-0.5:</p>
+                    <p class="final-data__MTC_MOMDown size100 input"></p>
+                </div>
+                <div class="final-data_MTC_DiffMtc container-flex center margin-bottom-5">
+                    <p class="size200">DIFF. OF MTC's:</p>
+                    <p class="final-data__MTC_DiffMtc size100 input"></p>
+                </div>
+                <div class="final-data_2ndCorr container-flex center margin-bottom-5">
+                    <p class="size200">2nd Corr:</p>
+                    <p class="final-data__2ndCorr size100 input highlight"></p>
+                </div>
+                <div class="final-data_Diff_MidDraft container-flex center margin-bottom-5">
+                    <p class="size200">DIFF. OF Dm:</p>
+                    <p class="final-data__Diff_MidDraft size100 input"></p>
+                </div>
+                <div class="final-data_Tpc_DmPort container-flex center margin-bottom-5">
+                    <p class="size200">TPC Dm Port:</p>
+                    <p class="final-data__Tpc_DmPort size100 input"></p>
+                </div>
+                <div class="final-data_Tpc_DmStbd container-flex center margin-bottom-5">
+                    <p class="size200">TPC Dm Stbd:</p>
+                    <p class="final-data__Tpc_DmStbd size100 input"></p>
+                </div>
+                <div class="final-data_Diff_BtwnTpc container-flex center margin-bottom-5">
+                    <p class="size200">Diff of TPC:</p>
+                    <p class="final-data__Diff_BtwnTpc size100 input"></p>
+                </div>
+                <div class="final-data_HeelCorrection container-flex center margin-bottom-5">
+                    <p class="size200">Heel Corr.:</p>
+                    <p class="final-data__HeelCorrection size100 input highlight"></p>
+                </div>
+                <div class="final-data_DisplCorrected container-flex center margin-bottom-5">
+                    <p class="size200">Displ Corrected:</p>
+                    <p class="final-data__DisplCorrected size100 input"></p>
+                </div>
+                <div class="final-data_HydTableDensity container-flex center margin-bottom-5">
+                    <p class="size200">Hyd. Table Density:</p>
+                    <input type="number"  step="0.001" class="final-data__HydTableDensity size100 input"></input>
+                </div>
+                <div class="final-data_FinalDisplCorrected container-flex center margin-bottom-5">
+                    <p class="size200">Final Displ:</p>
+                    <p class="final-data__finalFinalDisplCorrected size100 input"></p>
+                </div>
+            </div>
+            <div class="right">
+                <div>
+                <div class="final-data_Deductables">
+                    <div class="final-data_HFO container-flex center margin-bottom-5">
+                        <p class="size200">HFO:</p>
+                        <input type="number"  step="0.1" class="final-data__HFO size100 input"></input>
+                    </div>
+                    <div class="final-data_LSFO container-flex center margin-bottom-5">
+                        <p class="size200">LSFO:</p>
+                        <input type="number"  step="0.1" class="final-data__LSFO size100 input"></input>
+                    </div>
+                    <div class="final-data_MGO container-flex center margin-bottom-5">
+                        <p class="size200">MGO:</p>
+                        <input type="number"  step="0.1" class="final-data__MGO size100 input"></input>
+                    </div>
+                    <div class="final-data_LSMGO container-flex center margin-bottom-5">
+                        <p class="size200">LSMGO:</p>
+                        <input type="number"  step="0.1" class="final-data__LSMGO size100 input"></input>
+                    </div>
+                    <div class="final-data_LO container-flex center margin-bottom-5">
+                        <p class="size200">LO:</p>
+                        <input type="number"  step="0.1" class="final-data__LO size100 input"></input>
+                    </div>
+                    <div class="final-data_FW container-flex center margin-bottom-5">
+                        <p class="size200">FW:</p>
+                        <input type="number"  step="0.1" class="final-data__FW size100 input"></input>
+                    </div>
+                    <div class="final-data_Ballast container-flex center margin-bottom-5">
+                        <p class="size200">Ballast:</p>
+                        <input type="number"  step="0.1" class="final-data__ballast size100 input"></input>
+                    </div>
+                    <div class="final-data_Constant container-flex center margin-bottom-5">
+                        <p class="size200">Constant:</p>
+                        <input type="number"  step="0.1" class="final-data__constant size100 input"></input>
+                    </div>
+                    <div class="final-data_Other container-flex center margin-bottom-5">
+                        <p class="size200">Other:</p>
+                        <input type="number"  step="0.1" class="final-data__other size100 input"></input>
+                    </div>
+                    <div class="final-data_totalDecuctables container-flex center margin-bottom-5">
+                        <p class="size200">Total:</p>
+                        <p class="final-data__totalDecuctables size100 input"></p>
+                    </div>
+                </div>
+                <div class="final-data_netDisplacement container-flex center margin-bottom-5">
+                    <p class="size200">Net Displacement:</p>
+                    <p class="final-data__netDisplacement size100 input"></p>
+                </div>
+                <div class="final-data_lightship container-flex center margin-bottom-5">
+                    <p class="size200">Lightship:</p>
+                    <input type="number"  step="0.1" class="final-data__lightship size100 input"></input>
+                </div>
+                <div class="final-data_cargoOnBoard container-flex center margin-bottom-5">
+                    <p class="size200">Cargo On Board:</p>
+                    <p class="final-data__cargoOnBoard size100 input highlight"></p>
+                </div>
+                </div>
+                <div class="remarks-box">
+                    <p class="size200">Remarks:</p>
+                    <input type="text" class="final-remarks input remarks">
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>  
+    </main>
+    <footer class="container-flex">
+            <div class="footer_persons container-flex center margin-bottom-5">
+                <p>Master/Chief Officer:</p>
+                <input class="footer_persons-vessel input"></input>
+            </div>
+            <div class="footer_persons container-flex center margin-bottom-5">
+                <p>Cargo Surveyor:</p>
+                <input class="footer_persons-shore input"></input>
+            </div>
+
+    </footer>
+<script src="./script.js"></script>
+</body>
+</html>
