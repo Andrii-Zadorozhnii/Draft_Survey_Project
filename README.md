@@ -1,5 +1,5 @@
 # Draft Survey Calculator
-Vessel calculation created basen on panamax vessel, but can be changed for anouther vessel, by replacing hydrostatic data inside script.js -> led data.
+Vessel calculation created based on Panamax vessel, but can be changed for another vessel, by replacing hydrostatic data inside script.js -> led data.
 ![Draft Survey](./vessel.png)
 
 ## Overview
@@ -26,7 +26,7 @@ The draft survey calculator provided in this repository is designed to streamlin
 To use the draft survey calculator, follow these steps:
 
 1. Clone or download this repository to your local machine.
-2. Open the draft survey calculator file in your preferred environment (google chrome).
+2. Open the draft survey calculator file in your preferred environment (Google Chrome).
 3. Input the required data, including initial and final draft readings, vessel particulars, and cargo density.
 4. Run the calculation to obtain the estimated cargo quantity.
 
@@ -36,5 +36,5 @@ Contributions to this project are welcome! If you have any suggestions, bug fixe
 
 ## Acknowledgements
 
-Special thanks to [MarineTraffic](https://www.marinetraffic.com/) for providing image used in this README.
+Special thanks to [MarineTraffic](https://www.marinetraffic.com/) for providing the image used in this README.
 
