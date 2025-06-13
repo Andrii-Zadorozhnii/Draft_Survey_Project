@@ -8088,9 +8088,9 @@ localStorage.setItem('finalDate', finalDate.value);
 });
 
 // get data from local storage
-vesselName.value = localStorage.getItem('vesselName') || '';
-portName.value = localStorage.getItem('portName') || '';
-cargoName.value = localStorage.getItem('cargoName') || '';
+vesselName.value = localStorage.getItem('vesselName') || 'GOODSHIP';
+portName.value = localStorage.getItem('portName') || 'Port Hedland';
+cargoName.value = localStorage.getItem('cargoName') || 'Irone Ore';
 initialDate.value = localStorage.getItem('initialDate') || '';
 finalDate.value = localStorage.getItem('finalDate') || '';
 
@@ -8769,13 +8769,13 @@ localStorage.setItem('initialRemarks', initialRemarks.value);
 
 // get data from local storage
 
-initialDraftPortForward.value = localStorage.getItem('initialDraftPortForward') || '';
-initialDraftPortMiddle.value = localStorage.getItem('initialDraftPortMiddle') || '';
-initialDraftPortAft.value = localStorage.getItem('initialDraftPortAft') || '';
+initialDraftPortForward.value = localStorage.getItem('initialDraftPortForward') || '10.00';
+initialDraftPortMiddle.value = localStorage.getItem('initialDraftPortMiddle') || '10.54';
+initialDraftPortAft.value = localStorage.getItem('initialDraftPortAft') || '11.02';
 
-initialDraftStbdForward.value = localStorage.getItem('initialDraftStbdForward') || '';
-initialDraftStbdMiddle.value = localStorage.getItem('initialDraftStbdMiddle') || '';
-initialDraftStbdAft.value = localStorage.getItem('initialDraftStbdAft') || '';
+initialDraftStbdForward.value = localStorage.getItem('initialDraftStbdForward') || '10.03';
+initialDraftStbdMiddle.value = localStorage.getItem('initialDraftStbdMiddle') || '10.68';
+initialDraftStbdAft.value = localStorage.getItem('initialDraftStbdAft') || '11.09';
 
 initialDraftMeanForward.value = localStorage.getItem('initialMeanDraftPortForward') || '';
 initialDraftMeanMiddle.value = localStorage.getItem('initialMeanDraftPortMiddle') || '';
@@ -8785,7 +8785,7 @@ initialDraftMeanAft.textContent = localStorage.getItem('initialMeanDraftAft') ||
 initialDraftMeanForward.textContent = localStorage.getItem('initialMeanDraftForward') || '';
 initialDraftMeanMiddle.textContent = localStorage.getItem('initialMeanDraftMiddle') || '';
 
-initialWaterDensity.value = localStorage.getItem('initialWaterDensity') || '';
+initialWaterDensity.value = localStorage.getItem('initialWaterDensity') || '1.023';
 
 initialTBM.textContent = localStorage.getItem('initialTBM', Number) || '';
 
@@ -8799,9 +8799,9 @@ initialDfmMid.value = localStorage.getItem('initialDfmMid') || '';
 initialDfmAft.value = localStorage.getItem('initialDfmAft') || '';
 
 //draft correction values
-initialDraftCorrectionFwd.textContent = localStorage.getItem('draftInitialCorrectionFwd', Number) || '';
-initialDraftCorrectionMid.textContent = localStorage.getItem('draftInitialCorrectionMid', Number) || '';
-initialDraftCorrectionAft.textContent = localStorage.getItem('draftInitialCorrectionAft', Number) || '';
+initialDraftCorrectionFwd.textContent = localStorage.getItem('draftInitialCorrectionFwd', Number) || '4.2';
+initialDraftCorrectionMid.textContent = localStorage.getItem('draftInitialCorrectionMid', Number) || '0.10';
+initialDraftCorrectionAft.textContent = localStorage.getItem('draftInitialCorrectionAft', Number) || '-20.4';
 
 //corrected drafts
 initialCorrectedDraftFwd.textContent = localStorage.getItem('initialCorrectedDraftFwd', Number) || '';
@@ -8840,7 +8840,7 @@ initialHeelCorrection.textContent = localStorage.getItem('initialHellCorrection'
 
 initialDiplCorrected.textContent = localStorage.getItem('initialDisplCorrected', Number) || '';
 
-initialTableDensity.value = localStorage.getItem('initialTableDensity', Number) || 0;
+initialTableDensity.value = localStorage.getItem('initialTableDensity', Number) || '1.025';
 
 initialFinalCalcDisplCorrected.textContent = localStorage.getItem('initialFinalCalcDisplCorrected', Number) || 0;
 
